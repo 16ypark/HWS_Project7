@@ -86,6 +86,7 @@ class ViewController: UITableViewController {
             self?.applyFilter(answer)
         })
         
+        ac.addAction(UIAlertAction(title: "See All Petitions", style: .default, handler: getAllPetitions))
         ac.addAction(submitAction)
         present(ac, animated: true)
     }
@@ -99,6 +100,11 @@ class ViewController: UITableViewController {
             }
         }
         
+        tableView.reloadData()
+    }
+    
+    func getAllPetitions(action: UIAlertAction!) {
+        filteredPetitions = petitions
         tableView.reloadData()
     }
 }
